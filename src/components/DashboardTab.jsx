@@ -249,7 +249,7 @@ export default function DashboardTab() {
 
   return (
     <div className="mx-auto max-w-md px-4 pb-10 pt-6 tracking-wider">
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-white">♻ TakaPick</h1>
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-white">♻ TakaCollect</h1>
       <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">Operator dashboard · waste collection business</p>
 
       <div className="mb-4 grid grid-cols-4 rounded-xl bg-gray-200 p-1 dark:bg-gray-700">

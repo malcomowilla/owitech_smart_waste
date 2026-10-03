@@ -97,7 +97,7 @@ export default function SignupPage({ onSwitchToLogin }) {
             className="absolute -bottom-32 -left-16 h-96 w-96 rounded-full bg-emerald-400/20 blur-3xl"
           />
 
-          <p className="relative text-xl font-bold tracking-tight">♻ TakaPick</p>
+          <p className="relative text-xl font-bold tracking-tight">♻ TakaCollect</p>
 
           <div className="relative max-w-md">
             <h2 className="text-4xl font-bold leading-tight tracking-tight">
