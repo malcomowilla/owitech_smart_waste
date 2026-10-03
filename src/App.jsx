@@ -27,7 +27,7 @@ function App() {
       <Route path="/collector-dashboard" element={<DashboardTab />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/" element={<SignupPage />} />
-      <Route path="/signin" element={<LoginPage />} />
+      <Route path="/login" element={<LoginPage />} />
 
 
     </Routes>
