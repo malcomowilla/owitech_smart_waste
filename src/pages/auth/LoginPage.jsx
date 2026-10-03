@@ -3,7 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { MdAlternateEmail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 
 const inputClass =
   "w-full rounded-xl border border-gray-200 bg-white py-3 pl-11 pr-4 text-sm text-gray-900 " +
