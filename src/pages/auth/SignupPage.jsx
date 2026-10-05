@@ -87,7 +87,9 @@ export default function SignupPage({ onSwitchToLogin }) {
       <Toaster />
       <main className="grid min-h-screen bg-white dark:bg-gray-950 lg:grid-cols-2">
         {/* Brand panel (desktop only) */}
-        <aside className="relative hidden overflow-hidden bg-gradient-to-br from-green-600 via-green-700 to-emerald-900 p-12 text-white lg:flex lg:flex-col lg:justify-between">
+        <aside className="relative hidden overflow-hidden bg-gradient-to-br
+         from-green-600 via-green-700 to-emerald-900 p-12 text-white
+          lg:flex lg:flex-col lg:justify-between">
           <div
             aria-hidden="true"
             className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-green-300/20 blur-3xl"
@@ -199,7 +201,8 @@ export default function SignupPage({ onSwitchToLogin }) {
                   <button
                     type="button"
                     onClick={onSwitchToLogin}
-                    className="font-semibold text-green-600 transition hover:text-green-700 hover:underline dark:text-green-400 dark:hover:text-green-300"
+                    className="font-semibold text-green-600 transition hover:text-green-700
+                     hover:underline dark:text-green-400 dark:hover:text-green-300"
                   >
                     Sign in
                   </button>

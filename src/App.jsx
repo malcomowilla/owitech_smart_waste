@@ -1,39 +1,41 @@
-import { useState, lazy } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { lazy, Suspense } from "react";
+import { Route, Routes, useNavigate } from "react-router";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./redirects/ProtectedRoute";
+import GuestRoute from "./redirects/GuestRoute";
+import PageLoader from "./loader/PageLoader";
+import "./App.css";
 
-import {
- 
-  Route,
-  Routes,
-   useNavigate
-} from "react-router";
+const DashboardTab = lazy(() => import("./components/DashboardTab"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const SignupPage = lazy(() => import("./pages/auth/SignupPage"));
+const LoginPage = lazy(() => import("./pages/auth/LoginPage"));
 
-const DashboardTab = lazy(() => import('./components/DashboardTab'))
-const NotFound = lazy(() => import('./pages/NotFound'))
-const SignupPage = lazy(() => import('./pages/auth/SignupPage'))
-const LoginPage = lazy(() => import('./pages/auth/LoginPage'))
-
-
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-    <Routes>
-      <Route path="/collector-dashboard" element={<DashboardTab />} />
-      <Route path="*" element={<NotFound />} />
-      <Route path="/" element={<SignupPage />} />
-      <Route path="/login" element={<LoginPage />} />
-
-
-    </Routes>
-
-    </>
-  )
+// The pages get their "switch" buttons from the router
+function SignupRoute() {
+  const navigate = useNavigate();
+  return <SignupPage onSwitchToLogin={() => navigate("/login")} />;
 }
 
-export default App
+function LoginRoute() {
+  const navigate = useNavigate();
+  return <LoginPage onSwitchToSignup={() => navigate("/")} />;
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<GuestRoute><SignupRoute /></GuestRoute>} />
+          <Route path="/signup" element={<GuestRoute><SignupRoute /></GuestRoute>} />
+          <Route path="/login" element={<GuestRoute><LoginRoute /></GuestRoute>} />
+          <Route path="/collector-dashboard" element={<ProtectedRoute><DashboardTab /></ProtectedRoute>} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </AuthProvider>
+  );
+}
+
+export default App;
