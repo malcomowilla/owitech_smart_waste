@@ -1,6 +1,7 @@
 
-
 import { useState, useEffect } from "react";
+import { MdLogout } from "react-icons/md";
+import { useAuth } from "../context/AuthContext";
 
 // ---- Settings (change these) ----
 const PACK_PRICE = 200; // what a customer pays the operator per bag pack (KSh)
@@ -223,6 +224,8 @@ const TABS = [
 ];
 
 export default function DashboardTab() {
+  const { logout } = useAuth();
+  const [loggingOut, setLoggingOut] = useState(false);
   const [tab, setTab] = useState("home");
   const [buildings, setBuildings] = useStored("tp_buildings", seedBuildings);
   const [customers, setCustomers] = useStored("tp_customers", seedCustomers);
@@ -247,10 +250,29 @@ export default function DashboardTab() {
   const withdraw = () =>
     setTx([{ id: Date.now(), type: "withdrawal", label: "Withdrawal to M-Pesa", net: balance, time: now() }, ...tx]);
 
+  // Clears the login cookie on Rails, then AuthProvider flips to "guest" and ProtectedRoute sends you to /login
+  const handleLogout = async () => {
+    setLoggingOut(true);
+    await logout();
+  };
+
   return (
     <div className="mx-auto max-w-md px-4 pb-10 pt-6 tracking-wider">
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-white">♻ TakaCollect</h1>
-      <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">Operator dashboard · waste collection business</p>
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">♻ TakaCollect</h1>
+          <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">Operator dashboard · waste collection business</p>
+        </div>
+        <button
+          type="button"
+          onClick={handleLogout}
+          disabled={loggingOut}
+          className="flex shrink-0 items-center gap-1.5 rounded-xl border border-gray-300 px-3 py-2 text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 disabled:cursor-not-allowed disabled:opacity-60 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+        >
+          <MdLogout className="text-base" aria-hidden="true" />
+          {loggingOut ? "Logging out…" : "Log out"}
+        </button>
+      </div>
 
       <div className="mb-4 grid grid-cols-4 rounded-xl bg-gray-200 p-1 dark:bg-gray-700">
         {TABS.map(([key, label]) => (
@@ -276,3 +298,5 @@ export default function DashboardTab() {
     </div>
   );
 }
+
+
