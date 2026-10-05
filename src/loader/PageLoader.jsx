@@ -19,7 +19,7 @@ export default function PageLoader({ label = "Loading" }) {
       </div>
 
       <div className="text-center">
-        <p className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">TakaPick</p>
+        <p className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">TakaCollect</p>
         <p className="mt-1 flex items-center justify-center gap-1 text-sm text-gray-500 dark:text-white/50">
           {label}
           <span aria-hidden="true" className="flex gap-0.5">
