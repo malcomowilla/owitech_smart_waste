@@ -10,6 +10,7 @@ export default function ProtectedRoute({ children }) {
   if (status === "loading") return <PageLoader label="Checking your session" />;
   if (status !== "authenticated") return <Navigate to="/login" replace />;
 
+
   return children;
 }
 

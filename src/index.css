@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --font-sans: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  /* --color-cream: #F5EFE8; */
 }
 
 /* Keep ONE of these, based on what you found in DevTools: */
@@ -15,7 +16,8 @@
   }
   body {
     @apply bg-gray-50 font-sans antialiased dark:bg-gray-900;
-    letter-spacing: 0.18px;
+    letter-spacing: 0;
     text-rendering: optimizeLegibility;
+    
   }
 }

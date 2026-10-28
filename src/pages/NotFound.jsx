@@ -4,16 +4,21 @@ export default function NotFound() {
   const navigate = useNavigate();
 
   return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-green-50 px-6 text-center dark:bg-gray-950">
+    <main className="relative flex min-h-screen items-center justify-center 
+    overflow-hidden bg-green-50 px-6 text-center dark:bg-gray-950">
       {/* Soft green glow behind the content */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-400/30 blur-3xl dark:bg-green-500/20"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-96
+         w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-400/30 
+         blur-3xl dark:bg-green-500/20"
       />
 
       <div className="relative max-w-md">
         <p
-          className="select-none text-8xl font-extrabold tracking-tight text-green-600 sm:text-9xl dark:text-green-400"
+          className="select-none text-8xl font-extrabold
+           tracking-tight text-green-600 sm:text-9xl
+            dark:text-green-400"
           aria-hidden="true"
         >
           404

@@ -172,7 +172,10 @@ export default function LoginPage({ onSwitchToSignup }) {
               <button
                 type="button"
                 onClick={onSwitchToSignup}
-                className="font-semibold text-green-600 transition hover:text-green-700 hover:underline dark:text-green-400 dark:hover:text-green-300"
+                className="font-semibold text-green-600 
+                transition hover:text-green-700
+                 hover:underline dark:text-green-400
+                  dark:hover:text-green-300 cursor-pointer"
               >
                 Create an account
               </button>

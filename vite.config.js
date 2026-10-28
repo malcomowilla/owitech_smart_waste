@@ -6,11 +6,10 @@ const FALLBACK_TARGET = 'http://0.0.0.0:3000'
 
 // Choose the backend from the host the browser used
 const pickTarget = (req) => {
-  // strip the port, e.g. "shop.owitech.co.ke:5173" -> "shop.owitech.co.ke"
   const host = (req.headers.host || '').split(':')[0]
 
   if (
-    host === 'aitechs.co.ke' ||
+    host === 'owitech.co.ke' ||
     host.endsWith('.aitechs.co.ke') ||
     host.endsWith('.owitech.co.ke')
   ) {

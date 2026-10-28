@@ -45,7 +45,7 @@ const strong = "font-medium text-gray-900 dark:text-white";
 const input =
   "w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 dark:border-gray-600 dark:bg-gray-900 dark:text-white";
 const btn =
-  "w-full rounded-xl bg-green-600 py-3 font-semibold text-white transition-colors hover:bg-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500 dark:disabled:bg-gray-700";
+  "w-full rounded-xl bg-green-600 py-3 cursor-pointer font-semibold text-white transition-colors hover:bg-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500 dark:disabled:bg-gray-700";
 const btnOutline =
   "w-full rounded-xl border border-green-600 py-2 font-semibold text-green-700 transition-colors hover:bg-green-50 dark:text-green-400 dark:hover:bg-gray-700";
 
@@ -53,8 +53,8 @@ const btnOutline =
 function Stat({ label, value }) {
   return (
     <div className={card}>
-      <p className="text-xl font-bold text-green-600 dark:text-green-400">{value}</p>
-      <p className="text-xs text-gray-600 dark:text-gray-400">{label}</p>
+      <p className="text-3xl font-bold text-green-600 dark:text-green-400">{value}</p>
+      <p className="text-sm text-gray-600 dark:text-gray-400">{label}</p>
     </div>
   );
 }
@@ -72,7 +72,8 @@ function Dashboard({ buildings, customers, tx, balance }) {
       <Stat label="Platform fee (3%)" value={ksh(fees)} />
       <div className={card + " col-span-2"}>
         <p className={muted}>Wallet balance</p>
-        <p className="text-3xl font-bold text-green-600 dark:text-green-400">{ksh(balance)}</p>
+        <p className="text-3xl font-bold
+         text-green-600 dark:text-green-400">{ksh(balance)}</p>
       </div>
     </div>
   );
@@ -260,30 +261,38 @@ export default function DashboardTab() {
     <div className="mx-auto max-w-md px-4 pb-10 pt-6 tracking-wider">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">♻ TakaCollect</h1>
-          <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">Operator dashboard · waste collection business</p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">♻ TakaCollect</h1>
+          <p className="mb-4 text-lg text-gray-600
+           dark:text-gray-400">Operator dashboard · waste collection business</p>
         </div>
         <button
           type="button"
           onClick={handleLogout}
           disabled={loggingOut}
-          className="flex shrink-0 items-center gap-1.5 rounded-xl border border-gray-300 px-3 py-2 text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 disabled:cursor-not-allowed disabled:opacity-60 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+          className="flex shrink-0 items-center gap-1.5
+           rounded-xl border border-gray-300 px-3 py-2 text-xs 
+           font-semibold text-gray-700 transition-colors
+            hover:bg-gray-100 focus:outline-none 
+            focus-visible:ring-2 focus-visible:ring-green-500 
+            disabled:cursor-not-allowed disabled:opacity-60 
+            dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
         >
-          <MdLogout className="text-base" aria-hidden="true" />
+          <MdLogout className="text-sm" aria-hidden="true" />
           {loggingOut ? "Logging out…" : "Log out"}
         </button>
       </div>
 
-      <div className="mb-4 grid grid-cols-4 rounded-xl bg-gray-200 p-1 dark:bg-gray-700">
+      <div className="mb-4 grid grid-cols-4 rounded-xl bg-gray-200 
+      p-1 dark:bg-gray-700 ">
         {TABS.map(([key, label]) => (
           <button
             key={key}
             onClick={() => setTab(key)}
             className={
-              "rounded-lg py-2 text-xs font-semibold transition-colors " +
+              "rounded-lg py-2 text-sm font-semibold transition-colors " +
               (tab === key
-                ? "bg-white text-green-700 shadow dark:bg-gray-900 dark:text-green-400"
-                : "text-gray-600 dark:text-gray-300")
+                ? "bg-white text-green-700 shadow cursor-pointer dark:bg-gray-900 dark:text-green-400"
+                : "text-gray-600 dark:text-gray-300 cursor-pointer")
             }
           >
             {label}

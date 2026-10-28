@@ -85,7 +85,7 @@ export default function SignupPage({ onSwitchToLogin }) {
   return (
     <>
       <Toaster />
-      <main className="grid min-h-screen bg-white dark:bg-gray-950 lg:grid-cols-2">
+      <main className="grid min-h-screen bg-cream dark:bg-gray-950 lg:grid-cols-2">
         {/* Brand panel (desktop only) */}
         <aside className="relative hidden overflow-hidden bg-gradient-to-br
          from-green-600 via-green-700 to-emerald-900 p-12 text-white
@@ -201,8 +201,10 @@ export default function SignupPage({ onSwitchToLogin }) {
                   <button
                     type="button"
                     onClick={onSwitchToLogin}
-                    className="font-semibold text-green-600 transition hover:text-green-700
-                     hover:underline dark:text-green-400 dark:hover:text-green-300"
+                    className="font-semibold text-green-600 transition
+                     hover:text-green-700
+                     hover:underline dark:text-green-400
+                      dark:hover:text-green-300 cursor-pointer"
                   >
                     Sign in
                   </button>
